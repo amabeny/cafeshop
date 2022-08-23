@@ -1,0 +1,53 @@
+/**
+ * System Design
+ */
+public class cafe {
+
+  // FIELDS
+  private String name; // This object's "name", i.e., "Tea", "Coffee", "Lattee", etc.
+  private int type; // This object's Type of size : 1, 2, or 3
+  private double cost; // This object's cost
+  
+
+  // CONSTRUCTOR
+  public cafe(String nam, int typ, double cst) {
+    this.name = nam; // Set this Drink object's name field
+    this.type = typ; // Set this Drink object's type field
+    this.cost = cst; // Set this Drink object's cost field
+    
+  }
+
+  // GETTER FOR NAME
+  public String getName() {
+    return this.name; // Return the name of this type of Drink
+  }
+
+  // SETTER FOR NAME
+  public void setName(String nam) {
+    this.name = nam; // Set the name of the current drink object
+  }
+
+  // GETTER FOR TYPE
+  public int getType() {
+    return this.type; // Return the type number of the current Drink
+  }
+
+  // SETTER FOR TYPE
+  public void getType(int typ) {
+    this.type = typ; // Set the type of the current Drink object
+  }
+
+  // GETTER FOR COST
+  public double getCost() {
+    return this.cost; // Return the cost of the current Drink object
+  }
+
+  // SETTER FOR COST
+  public void setCost(double amount) {
+    this.cost = amount; // Set the cost of the current Drink object
+  }
+
+
+  // Returns a String object with all the data from the current Drink object
+  public String toString() {
+    return "Each " + this.name + ", a type " + this.type + " Drink co
