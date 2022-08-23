@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+public class cafeshop{
+
+    static Scanner scnr = new Scanner(System.in);
+    public static void main(String[] args) { 
+//System Design
+
+//orders
+order order1 = new order("",1,0,0);
+order order2 = new order("",2,0,0);
+order order3 = new order("",3,0,0);
+
+//inputs
+System.out.println("How many drinks would you like?");;
+int choice = scnr.nextInt();
+scnr.nextLine();
+int count = 0;
+while (count < choice){
+
+    System.out.println("Please enter the drink that you would like");
+    String nam = scnr.nextLine(); 
+    
+    System.out.println("What size drink would you like? Please enter 1 for small, 2 for medium, or 3 for large");
+    int typ = scnr.nextInt();
+
+
+    scnr.nextLine();
+    System.out.println("What is the price of the drink?");
+    double cst = scnr.nextDouble();
+//error
+    Boolean error = true;
+while (error == true){
+if (cst > 0){
+error = false;
+}
+else{
+System.out.println("try again with a positive value above 0");
+cst = scnr.nextDouble();
+}
+}
+
+    scnr.nextLine();
+   
+    Boolean error2 = true;
+while (error2 == true){
+if (cst > 0){
+error2 = false;
+}
+else{
+System.out.println("try again with a positive value above 0");
+cst = scnr.nextInt();
+}
+}
+    if(typ == 1){
+        order1.setName(nam);
+        order1.setCost(cst);
+    }
+    else if (typ == 2){
+        order2.setName(nam);
+        order2.setCost(cst);
+    }
+    else{
+        order3.setName(nam);
+        order3.setCost(cst);
+
+}
+count ++;
+    } //end of loop
+//customer store input
+System.out.println("How many drinks of each type would you like to buy? Enter 0 if you are not getting any of that type");
+System.out.println("small:");
+int amnt1 = scnr.nextInt();
+System.out.println("medium:");
+int amnt2 = scnr.nextInt();
+System.out.println("large:");
+int amnt3 = scnr.nextInt();
+
+//total costs
+double totalcst = (order1.getCost()*amnt1)+ (order2.getCost()*amnt2)+ (order3.getCost()*amnt3);
+double totalcost = (order1.getCost()*amnt1)+ (order2.getCost()*amnt2)+ (order3.getCost()*amnt3);
+
+if((totalcost >= 20) && (totalcost < 35)){
+   totalcost=(totalcost - (totalcost * .05));
+}
+    else if((totalcost >= 35) && (totalcost < 55)){
+        totalcost=(totalcost - (totalcost * .07));
+}
+else if((totalcost >= 55) && (totalcost < 100)){
+    totalcost=(totalcost - (totalcost * .1));
+}
+else if ((totalcost >= 100)){
+    totalcost=(totalcost - (totalcost * .05));
+}
+
+
+//Final outputs
+System.out.println("Your initial cost is $" + totalcst);
+System.out.println("your total cost with discounts is $" + totalcost);
+
+}
+}
